@@ -9,7 +9,6 @@ const schema = Joi.object({
     password: Joi.string().min(8).required(),
 });
 
-
 export default async (req, res) => {
     await ConnectDB();
 

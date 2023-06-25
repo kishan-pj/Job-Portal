@@ -1,6 +1,5 @@
 import connectDB from "@/DB/connectDB";
 import Contact from "@/models/Contact";
-// import NextResponse from "@"
 import mongoose from "mongoose";
 
 export async function POST(req) {
@@ -9,7 +8,6 @@ export async function POST(req) {
   try {
     await connectDB();
     await Contact.create({ fullname, email, message });
-
     return NextResponse.json({
       msg: ["Message sent successfully"],
       success: true,
