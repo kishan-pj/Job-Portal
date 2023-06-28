@@ -13,8 +13,6 @@ import { InfinitySpin } from 'react-loader-spinner'
 import { useDispatch, useSelector } from 'react-redux'
 
 
-
-
 export default function Dashboard() {
   const [showTable, setShowTable] = useState('appliedJobs')
   const [loading , setLoading] = useState(true)
@@ -31,8 +29,6 @@ export default function Dashboard() {
   }, [activeUser, id, Cookies])
 
   
-
-
   useEffect(() => {
     fetchAppliedJobs()
   }, [])

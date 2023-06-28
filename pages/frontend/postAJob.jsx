@@ -39,7 +39,6 @@ export default function PostAJob() {
             return;
         }
 
-
         if (!formData.company) {
             setError({ ...error, company: "company Field is required" })
             return;
@@ -102,8 +101,6 @@ export default function PostAJob() {
     ]
 
 
-
-
     return (
         <>
             <NavBar />
@@ -119,7 +116,7 @@ export default function PostAJob() {
                     </div>
                     <div className='w-full mb-4  flex flex-col items-start justify-center'>
                         <label htmlFor="salary" className='mb-1 text-base font-semibold'>Salary :</label>
-                        <input onChange={(e) => setFormData({ ...formData, salary: e.target.value })}  id='salary' className='w-full py-2 px-3 mb-2 border border-indigo-600 rounded' placeholder='Enter Salary for this job' />
+                        <input onChange={(e) => setFormData({ ...formData, salary: e.target.value })} id='salary' className='w-full py-2 px-3 mb-2 border border-indigo-600 rounded' placeholder='Enter Salary for this job' />
                         {
                             error.salary && <p className="text-sm text-red-500">{error.salary}</p>
                         }
@@ -128,7 +125,7 @@ export default function PostAJob() {
                         <label htmlFor="email" className='mb-1 text-base font-semibold'>Email :</label>
                         <input onChange={(e) => setFormData({ ...formData, email: e.target.value })} type="email" value={email} id='email' className='w-full py-2 px-3 mb-2 border border-indigo-600 rounded' placeholder='Enter Email to be Contacted for this job' />
                         {
-                             error.email && <p className="text-sm text-red-500">{error.email}</p>}
+                            error.email && <p className="text-sm text-red-500">{error.email}</p>}
                     </div>
                     <div className='w-full mb-4  flex flex-col items-start justify-center'>
                         <label htmlFor="company" className='mb-1 text-base font-semibold'>Company :</label>
@@ -146,7 +143,7 @@ export default function PostAJob() {
                     </div>
                     <div className='w-full mb-4  flex flex-col items-start justify-center'>
                         <label htmlFor="jobCategory" className='mb-1 text-base font-semibold'>Job Category :</label>
-                        <Select onChange={(e) => setFormData({ ...formData, job_category: e.value })}  id='jobCategory' options={Category} className='w-full py-2 px-3 mb-2 border border-indigo-600 rounded' placeholder='Enter Category of job' />
+                        <Select onChange={(e) => setFormData({ ...formData, job_category: e.value })} id='jobCategory' options={Category} className='w-full py-2 px-3 mb-2 border border-indigo-600 rounded' placeholder='Enter Category of job' />
                         {
                             error.job_category && <p className="text-sm text-red-500">{error.job_category}</p>
                         }
