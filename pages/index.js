@@ -12,12 +12,9 @@ import { setJobData } from '@/Utils/JobSlice'
 import { InfinitySpin } from 'react-loader-spinner'
 
 
-
 export default function Home() {
   const dispatch = useDispatch();
   const token = Cookies.get('token');
-
-
   const { data, error, isLoading } = useSWR('/getAllJobs', get_job)
 
   useEffect(() => {

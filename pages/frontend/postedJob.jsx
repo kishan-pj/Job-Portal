@@ -18,7 +18,6 @@ export default function PostedJobs() {
     const id = user?._id
 
 
-
     useEffect(() => {
         if (!id || !Cookies.get('token')) {
             router.push('/auth/login')

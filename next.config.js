@@ -3,7 +3,6 @@
 const path = require('path');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 
-
 const nextConfig = {
   images: {
     domains: ['api.dicebear.com', 'xsgames.co'],

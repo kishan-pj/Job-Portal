@@ -7,8 +7,6 @@ import Cookies from 'js-cookie';
 import 'react-toastify/dist/ReactToastify.css';
 
 
-
-
 export default function App({
   Component,
   pageProps: { session, ...pageProps },
