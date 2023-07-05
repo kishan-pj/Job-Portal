@@ -11,9 +11,6 @@ export default function Intro() {
   const [filterJobs, setFilteredJobs] = useState([])
   const [doneSearch, setDoneSearch] = useState(false)
 
-
-
-
   const handleSearch = (e) => {
     e.preventDefault();
     const filteredJobs = jobData?.filter((job) => {
@@ -26,25 +23,25 @@ export default function Intro() {
 
   return (
     <>
-      <div className='w-full  h-full flex items-center lg:justify-start py-24 justify-center flex-wrap  '>
-        <div className='lg:w-3/6 w-full sm:p-2 h-full my-2 flex items-center justify-center px-4 md:items-start md:justify-start md:p-20 flex-col '>
-          <h1 className='md:text-6xl text-2xl sm:text-2xl font-extrabold mb-4 text-black '>To Choose <span className='text-indigo-600'>Right Jobs.</span> </h1>
-          <p className='md:text-lg sm:text-sm text-xs mb-20 text-gray-400'>2400 Peoples are daily search in this portal, 100 user added job portal!</p>
-          <div className='bg-white flex-col mb-6 w-full md:px-4 py-3 flex sm:flex-row items-center justify-center rounded-lg'>
-            <input onChange={(e) => setSearch(e.target.value)} type="text" placeholder='Search Jobs with Job categories like marketing ...' className='w-full xs:w-full sm:w-5/6 h-full px-3 bg-gray-200 text-base py-3 outline-none rounded-lg' />
-            <BiSearchAlt onClick={handleSearch} className='text-4xl text-indigo-600 mx-2 hidden sm:flex' />
+      <div className='w-full h-full flex items-center lg:justify-start py-24 justify-center flex-wrap'>
+        <div className='lg:w-3/6 w-full sm:p-2 h-full my-2 flex items-center justify-center px-4 md:items-start md:justify-start md:p-20 flex-col'>
+          <div className='bg-white flex-col mb-6 w-full md:px-4 py-4 flex sm:flex-row items-center justify-center rounded-lg'>
+            {/* <BiSearchAlt onClick={handleSearch} className='text-2xl text-indigo-600 mx-2 hidden sm:flex' /> */}
+            <input onChange={(e) => setSearch(e.target.value)} type="text" placeholder='Search Jobs with Job categories like marketing ...' className='xs:w-full w-3/4 h-full px-2 bg-gray-200 text-base py-3 outline-none rounded-lg' />
+            <button onClick={handleSearch} className='px-3 py-2 my-2 sm:my-0 border border-indigo-600 rounded uppercase tracking-widest mx-4 text-white bg-indigo-600 transition-all duration-700 hover:bg-transparent font-semibold text-base hover:text-indigo-600'>Search</button>
           </div>
+          <h1 className='md:text-6xl text-2xl sm:text-2xl font-extrabold mb-4 text-black'>To Choose <span className='text-indigo-600'>Right Jobs.</span> </h1>
+          <p className='md:text-lg sm:text-sm text-xs mb-20 text-gray-400'>2400 Peoples are daily search in this portal, 100 user added job portal!</p>
 
-
-          <div className=' w-full px-2 py-2 flex items-center justify-start flex-wrap'>
+          <div className='w-full px-2 py-2 flex items-center justify-start flex-wrap'>
             <div className='flex items-center justify-center'>
               <BsFillBookmarkFill className='text-indigo-600 text-xl mx-2' />
-              <h1 className='font-semibold text-lg'>Suggest Tag : </h1>
+              <h1 className='font-semibold text-lg'>Suggest Tag:</h1>
             </div>
-            <div className='flex   items-center justify-center px-4 flex-wrap'>
-              <p className='px-2  text-gray-600'>Software</p>
-              <p className='px-2  text-gray-600'>Marketing</p>
-              <p className='px-2  text-gray-600'>UI/UX Design</p>
+            <div className='flex items-center justify-center px-4 flex-wrap'>
+              <p className='px-2 text-gray-600'>Software</p>
+              <p className='px-2 text-gray-600'>Marketing</p>
+              <p className='px-2 text-gray-600'>UI/UX Design</p>
             </div>
           </div>
         </div>
@@ -52,21 +49,88 @@ export default function Intro() {
           <Image width={600} height={700} src="/intro.png" alt="no-image-found" />
         </div>
       </div>
-      {
-        doneSearch && (
-          <div className='w-full flex flex-wrap items-center justify-center py-2 px-2'>
-            {
-              Array.isArray(filterJobs) && filterJobs.length > 0 ? filterJobs?.map((job) => {
-                return (
-                  <JobsCard job={job} key={job?._id} />
-                )
-              }) : <p className='text-sm text-center font-semibold  text-red-500'>Sorry No such Categories Job Available Right Now</p>
-            }
+      {doneSearch && (
+        <div className='w-full flex flex-wrap items-center justify-center py-2 px-2'>
+          {Array.isArray(filterJobs) && filterJobs.length > 0 ? (
+            <h1 className='text-3xl text-center font-bold mb-8'>Search Results</h1>,
+            filterJobs?.map((job) => (
+              <JobsCard job={job} key={job?._id} />
+            ))
+          ) : (
+            <p className='text-sm text-center font-semibold text-red-500'>Sorry, no jobs in the selected category are available right now.</p>
+          )}
+        </div>
+      )}
+
+      {/* Service Section */}
+      <section className="bg-gray-100 py-12">
+        <div className="container mx-auto ">
+          <h2 className="text-3xl text-center font-bold mb-8">Our Services</h2>
+          <div className="flex flex-wrap justify-center">
+            <div className="w-full sm:w-1/2 md:w-1/2 lg:w-1/3 xl:w-1/3 p-4">
+              <div className="bg-white p-8 rounded-xl shadow-lg h-full flex flex-col hover:shadow-2xl hover:transform hover:-translate-y-2 hover:scale-105 transition-all">
+                <div className="flex-shrink-0">
+                  <img className="w-full h-40 object-cover rounded-t-xl" src="/jobsearch.jpg" alt="Service 1" />
+                </div>
+                <div className="flex-grow p-4">
+                  <h3 className="text-xl font-semibold mb-2">Job Search</h3>
+                  <p className="text-gray-600">Looking for your dream job? Our comprehensive job search functionality can help you find the perfect match. With advanced search filters and an extensive database of job listings, you'll have access to a wide range of opportunities. Take the next step in your career and let our job search tool guide you towards your professional goals.</p>
+                </div>
+              </div>
+            </div>
+            <div className="w-full sm:w-1/2 md:w-1/2 lg:w-1/3 xl:w-1/3 p-4">
+              <div className="bg-white p-8 rounded-xl shadow-lg h-full flex flex-col hover:shadow-2xl hover:transform hover:-translate-y-2 hover:scale-105 transition-all">
+                <div className="flex-shrink-0">
+                  <img className="w-full h-40 object-cover rounded-t-xl" src="/jobpost.jpg" alt="Service 2" />
+                </div>
+                <div className="flex-grow p-4">
+                  <h3 className="text-xl font-semibold mb-2">Job Post</h3>
+                  <p className="text-gray-600">Are you an employer looking to fill a vacancy? Our job posting service is here to help. With our platform, you can reach a large pool of qualified candidates and attract top talent. Create detailed job listings, set preferences, and receive notifications about potential matches. Post your job today and find the right candidate for your organization's success.</p>
+                </div>
+              </div>
+            </div>
           </div>
-        )
-      }
+        </div>
+      </section>
+
+
+
+
+      {/* About Us Section */}
+      <section className="bg-white py-12">
+        <div className="container mx-auto">
+          <h2 className="text-3xl text-center font-bold mb-8">About Us</h2>
+          <div className="flex flex-wrap justify-center">
+            <div className="w-full sm:w-1/2 lg:w-1/3 p-4">
+              <h3 className="text-lg font-semibold mb-2">Our Mission</h3>
+              <p className="text-gray-600">We aim to connect job seekers with the right employment opportunities and help them build fulfilling careers.</p>
+            </div>
+            <div className="w-full sm:w-1/2 lg:w-1/3 p-4">
+              <h3 className="text-lg font-semibold mb-2">Our Vision</h3>
+              <p className="text-gray-600">To be the leading platform for job search and career development, providing valuable resources and innovative solutions.</p>
+            </div>
+            <div className="w-full sm:w-1/2 lg:w-1/3 p-4">
+              <h3 className="text-lg font-semibold mb-2">Our Values</h3>
+              <ul className="text-gray-600">
+                <li className="mb-1">Integrity</li>
+                <li className="mb-1">Excellence</li>
+                <li className="mb-1">Collaboration</li>
+                <li className="mb-1">Diversity</li>
+                <li>Innovation</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Footer */}
+      <footer className="bg-indigo-600 text-white py-6">
+        <div className="container mx-auto text-center">
+          <p>Copyright&copy; 2023 Job Portal. All rights reserved.</p>
+        </div>
+      </footer>
+
+
     </>
   )
 }
-
-

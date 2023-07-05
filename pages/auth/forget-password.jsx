@@ -15,36 +15,36 @@ export default function ForgetPassword() {
 
 
   const handleSubmit = async (e) => {
-
     e.preventDefault();
     if (!formData.email) {
-      setError({ ...error, email: "Email Field is Required" })
+      setError({ ...error, email: "Email Field is Required" });
       return;
     }
     if (!formData.password) {
-      setError({ ...error, password: "Password Field is required" })
+      setError({ ...error, password: "Password Field is required" });
       return;
     }
     if (!formData.confirmPassword) {
-      setError({ ...error, confirmPassword: "Confirm Password Field is required" })
+      setError({ ...error, confirmPassword: "Confirm Password Field is required" });
       return;
     }
-
+  
     if (formData.password !== formData.confirmPassword) {
-      toast.error("Password and Confirm Password does not match");
+      setError({ ...error, confirmPassword: "Password and Confirm Password does not match" });
+      return;
     }
-
+  
     const res = await forget_password(formData);
     if (res.success) {
       toast.success(res.message);
       setTimeout(() => {
-        Router.push('/auth/login')
+        Router.push('/auth/login');
       }, 1000);
-    }
-    else {
+    } else {
       toast.error(res.message);
     }
-  }
+  };
+  
 
 
   return (
