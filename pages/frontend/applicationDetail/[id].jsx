@@ -8,6 +8,8 @@ import { toast } from 'react-toastify';
 import Cookies from 'js-cookie';
 import { useSelector } from 'react-redux';
 import { components } from 'react-select';
+import { AiOutlineArrowLeft} from 'react-icons/ai';
+
 
 export default function ApplicationsDetail() {
     const router = useRouter();
@@ -27,10 +29,7 @@ export default function ApplicationsDetail() {
         () => get_application_details(id)
     );
 
-    const handleBack = () => {
-        router.back('/components/ApplicationsDataTable');
-    };
-
+   
     if (error) {
         toast.error(error);
         router.push('/frontend/postedJob');
@@ -47,12 +46,9 @@ export default function ApplicationsDetail() {
                 <>
                     <NavBar />
                     <div className="w-full px-4 flex flex-wrap pt-20 ">
-                        <button
-                            onClick={handleBack}
-                            className="bg-indigo-600  text-white font-bold py-1 px-5 rounded-full mt-5 ml-2"
-                        >
-                            Back
-                        </button>
+                       
+                        <button onClick={() => router.back('/components/ApplicationsDataTable')} className='my-2 py-2 px-3 rounded flex items-center justify-center transition-all duration-700  text-indigo-600 font-semibold'><AiOutlineArrowLeft className='mx- text-xl'/>Back</button>
+
                         <div className="w-full h-32 bg-gray-50 text-indigo-600 font-bold flex items-center justify-center flex-col">
                             <h1 className="text-3xl">Application Detail</h1>
                         </div>

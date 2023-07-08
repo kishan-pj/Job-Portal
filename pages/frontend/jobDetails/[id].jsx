@@ -31,15 +31,15 @@ export default function JobDetails() {
     const [JobDetails, setJobDetails] = useState(null);
 
 
-    const { data, error , isLoading } = useSWR(`/get-specified-job`, () => get_specified_job(id));
+    const { data, error, isLoading } = useSWR(`/get-specified-job`, () => get_specified_job(id));
 
 
     useEffect(() => {
-        if(data) setJobDetails(data?.data)
+        if (data) setJobDetails(data?.data)
     }, [data])
 
 
-    if(error) toast.error(error)
+    if (error) toast.error(error)
 
 
     useEffect(() => {
@@ -55,19 +55,19 @@ export default function JobDetails() {
         if (!user) {
             toast.error('Please Login First');
             return router.push('/auth/login')
-        } 
-        router.push(`/frontend/jobDetails/${job?._id}`)
+        }
+        router.push(`/frontend/applyJob/${id}`)
     }
 
 
-    const handleBookMark = async () =>  {
+    const handleBookMark = async () => {
 
         if (!user) return toast.error('Please Login First');
 
-        const data = {user : user?._id , job : JobDetails?._id}
+        const data = { user: user?._id, job: JobDetails?._id }
         const res = await book_mark_job(data);
-        if(res.success) {
-           return toast.success(res.message)
+        if (res.success) {
+            return toast.success(res.message)
         }
         else {
             return toast.error(res.message)
@@ -138,12 +138,13 @@ export default function JobDetails() {
                                         </div>
                                     </div>
                                     <div className='flex items-center justify-center'>
+                                        <h1>You Posted Jobs</h1>
                                         {
                                             JobDetails?.user?.email === user?.email ? (
                                                 <p className='text-xs text-red-500'>unable Apply to your Own jobs</p>
                                             ) : (
                                                 <div className='flex items-center justify-center  '>
-                                                    <BsFillBookmarkCheckFill onClick={handleBookMark} className='text-indigo-600 text-4xl cursor-pointer  mx-2'/>
+                                                    <BsFillBookmarkCheckFill onClick={handleBookMark} className='text-indigo-600 text-4xl cursor-pointer  mx-2' />
                                                     <button onClick={handleApply} className='md:px-6 md:py-3 px-3 py-2 mt-2 md:mt-0 bg-indigo-500 rounded text-base tracking-widest uppercase transition-all duration-700 hover:bg-indigo-900 text-white  '>Apply Position</button>
                                                 </div>
                                             )
@@ -184,47 +185,47 @@ export default function JobDetails() {
                                         machingData?.length === 0 ? (
                                             <>
                                                 <div className='md:w-96 w-full py-3 mx-4 my-2 flex items-center md:items-start px-6 justify-start md:justify-center flex-col rounded bg-gray-50'>
-                                                    <p  className='text-xs font-semibold text-red-600 uppercase'>No Other similar Jobs Available ...</p>
+                                                    <p className='text-xs font-semibold text-red-600 uppercase'>No Other similar Jobs Available ...</p>
                                                 </div>
 
-                                            </> 
+                                            </>
                                         ) : (
-                                        machingData?.map((item) => {
-                                            return (
-                                                <div key={item?._id} className='md:w-96 w-full py-3 mx-4 my-2 flex items-center md:items-start px-6 justify-start md:justify-center flex-col rounded bg-gray-50'>
-                                                    <div className='mb-4 flex px-4 flex-col md:flex-row items-center justify-start py-2 '>
-                                                        <Image width={70} height={70} className="flex rounded-full mb-4 md:mb-0" src={"https://xsgames.co/randomusers/avatar.php?g=male"} alt="no image" />
-                                                        <div className='flex flex-col w-full mx-2 px-2'>
-                                                            <h1 className='text-base md:text-left text-center  md:text-2xl font-semibold'>{item?.title}</h1>
-                                                            <p className='text-xs md:text-left text-center sm:text-sm md:text-base text-gray-800'>{item?.company}</p>
+                                            machingData?.map((item) => {
+                                                return (
+                                                    <div key={item?._id} className='md:w-96 w-full py-3 mx-4 my-2 flex items-center md:items-start px-6 justify-start md:justify-center flex-col rounded bg-gray-50'>
+                                                        <div className='mb-4 flex px-4 flex-col md:flex-row items-center justify-start py-2 '>
+                                                            <Image width={70} height={70} className="flex rounded-full mb-4 md:mb-0" src={"https://xsgames.co/randomusers/avatar.php?g=male"} alt="no image" />
+                                                            <div className='flex flex-col w-full mx-2 px-2'>
+                                                                <h1 className='text-base md:text-left text-center  md:text-2xl font-semibold'>{item?.title}</h1>
+                                                                <p className='text-xs md:text-left text-center sm:text-sm md:text-base text-gray-800'>{item?.company}</p>
+                                                            </div>
                                                         </div>
+                                                        <div className='flex flex-col px-1 md:px-4 py-6 items-start justify-center'>
+                                                            <div className='flex px-1 md:px-4 items-center justify-start mb-2'>
+                                                                <BsBriefcaseFill className='text-base font-semibold text-indigo-600' />
+                                                                <p className='font-semibold text-xs md:text-base mx-1'>Job Type </p>
+                                                                <p className='text-sm text-gray-800 mx-1'>{item?.job_type}</p>
+                                                            </div>
+                                                            <div className='flex px-1 md:px-4 items-center justify-center mb-2'>
+                                                                <AiOutlineDollarCircle className='text-base font-semibold text-indigo-600' />
+                                                                <p className='font-semibold text-xs md:text-base mx-1'>Salary </p>
+                                                                <p className=' text-sm text-gray-800 mx-1'>{item?.salary}</p>
+                                                            </div>
+                                                            <div className='flex px-1 md:px-4 items-center justify-center mb-2'>
+                                                                <RiUserSearchFill className='text-base font-semibold text-indigo-600' />
+                                                                <p className='font-semibold text-xs md:text-base mx-1'>Total Vacancies </p>
+                                                                <p className=' text-sm text-gray-800 mx-1'>{item?.job_vacancy}</p>
+                                                            </div>
+                                                            <div className='flex px-1 md:px-4 items-center justify-center mb-2'>
+                                                                <BsFillCalendar2DateFill className='text-base font-semibold text-indigo-600' />
+                                                                <p className='font-semibold text-xs md:text-base mx-1'>Dead Line</p>
+                                                                <p className=' text-xs text-gray-800 mx-1'>{new Date(`${item?.job_deadline}`).toLocaleDateString('en-GB')}</p>
+                                                            </div>
+                                                        </div>
+                                                        {/* <button onClick={() => router.push(`/frontend/jobDetails/${item?._id}`)} className='my-2 py-2 px-4  border border-indigo-600 uppercase  rounded flex items-center justify-center transition-all duration-700 hover:bg-indigo-600 hover:text-white text-indigo-600 font-semibold'>View Detail<AiOutlineArrowRight className='mx-2 text-xl' /></button> */}
                                                     </div>
-                                                    <div className='flex flex-col px-1 md:px-4 py-6 items-start justify-center'>
-                                                        <div className='flex px-1 md:px-4 items-center justify-start mb-2'>
-                                                            <BsBriefcaseFill className='text-base font-semibold text-indigo-600' />
-                                                            <p className='font-semibold text-xs md:text-base mx-1'>Job Type </p>
-                                                            <p className='text-sm text-gray-800 mx-1'>{item?.job_type}</p>
-                                                        </div>
-                                                        <div className='flex px-1 md:px-4 items-center justify-center mb-2'>
-                                                            <AiOutlineDollarCircle className='text-base font-semibold text-indigo-600' />
-                                                            <p className='font-semibold text-xs md:text-base mx-1'>Salary </p>
-                                                            <p className=' text-sm text-gray-800 mx-1'>{item?.salary}</p>
-                                                        </div>
-                                                        <div className='flex px-1 md:px-4 items-center justify-center mb-2'>
-                                                            <RiUserSearchFill className='text-base font-semibold text-indigo-600' />
-                                                            <p className='font-semibold text-xs md:text-base mx-1'>Total Vacancies </p>
-                                                            <p className=' text-sm text-gray-800 mx-1'>{item?.job_vacancy}</p>
-                                                        </div>
-                                                        <div className='flex px-1 md:px-4 items-center justify-center mb-2'>
-                                                            <BsFillCalendar2DateFill className='text-base font-semibold text-indigo-600' />
-                                                            <p className='font-semibold text-xs md:text-base mx-1'>Dead Line</p>
-                                                            <p className=' text-xs text-gray-800 mx-1'>{new Date(`${item?.job_deadline}`).toLocaleDateString('en-GB')}</p>
-                                                        </div>
-                                                    </div>
-                                                    {/* <button onClick={() => router.push(`/frontend/jobDetails/${item?._id}`)} className='my-2 py-2 px-4  border border-indigo-600 uppercase  rounded flex items-center justify-center transition-all duration-700 hover:bg-indigo-600 hover:text-white text-indigo-600 font-semibold'>View Detail<AiOutlineArrowRight className='mx-2 text-xl' /></button> */}
-                                                </div>
-                                            )
-                                        })
+                                                )
+                                            })
                                         )
                                     }
 
