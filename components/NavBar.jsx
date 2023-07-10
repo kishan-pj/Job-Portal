@@ -73,7 +73,7 @@ export default function NavBar() {
     const handleLogout = async () => {
         Cookies.remove('token');
         localStorage.removeItem('user')
-        Router.reload();
+        Router.push('/');
     }
 
 
@@ -89,15 +89,15 @@ export default function NavBar() {
             <div className={`w-full ${scrolled ? "bg-indigo-600/70" : "bg-indigo-600"} px-6 h-20 bg-indigo-600 text-white flex items-center justify-between fixed top-0 left-0 z-50`}>
                 <div className='px-2 h-full flex items-center justify-center'>
                     <img
-                        src="/logo.png"  // Replace "/path/to/logo.png" with the actual path to your logo image
+                        src="/logo4.png"  // Replace "/path/to/logo.png" with the actual path to your logo image
                         alt="Logo"
-                        className="h-8"  // Adjust the height of the logo image as needed
+                        className="h-20"  // Adjust the height of the logo image as needed
                     />
                 </div>
 
                 <div className='px-2 h-full hidden items-center justify-center lg:flex'>
                     <Link href={'/'} className="px-3 m-4  border-white rounded uppercase tracking-widest mx-4   transition-all duration-700 hover:bg-white font-semibold text-base hover:text-indigo-600" >Home</Link>
-                    {user !== null ? <Link href={'/frontend/postAJob'} className="px-3 m-4 border-white rounded uppercase tracking-widest mx-4   transition-all duration-700 hover:bg-white font-semibold text-base hover:text-indigo-600" >Post Jobs</Link> : null}
+                    <Link href={'/frontend/postAJob'} className="px-3 m-4 border-white rounded uppercase tracking-widest mx-4   transition-all duration-700 hover:bg-white font-semibold text-base hover:text-indigo-600" >Post Jobs</Link>
                     <Link href={'/frontend/displayJobs'} className="px-3 m-4  border-white rounded uppercase tracking-widest mx-4   transition-all duration-700 hover:bg-white font-semibold text-base hover:text-indigo-600" >View Jobs</Link>
                     {user !== null ? <Link href={'/frontend/postedJob'} className="px-3 m-4 border-white rounded uppercase tracking-widest mx-4   transition-all duration-700 hover:bg-white font-semibold text-base hover:text-indigo-600" >Posted Jobs</Link> : null}
                     {user !== null ? <Link href={'/frontend/dashboard'} className="px-3 m-4  border-white rounded uppercase tracking-widest mx-4   transition-all duration-700 hover:bg-white font-semibold text-base hover:text-indigo-600" >Dashboard</Link> : null}
@@ -136,7 +136,7 @@ export default function NavBar() {
                                     openJobs &&
                                     <>
                                         <Link href={'/frontend/displayJobs'} onClick={() => setIsOpen(false)} className="px-3 m-4 border-white rounded uppercase tracking-widest mx-4   transition-all duration-700 hover:bg-white font-semibold text-base hover:text-indigo-600" >View Jobs</Link>
-                                        {user !== null ? <Link href={'/frontend/postAJob'} className="px-3 m-4 border-white rounded uppercase tracking-widest mx-4   transition-all duration-700 hover:bg-white font-semibold text-base hover:text-indigo-600" >Post Jobs</Link> : null}
+                                     <Link href={'/frontend/postAJob'} className="px-3 m-4 border-white rounded uppercase tracking-widest mx-4   transition-all duration-700 hover:bg-white font-semibold text-base hover:text-indigo-600" >Post Jobs</Link>
                                         {user !== null ? <Link href={'/frontend/postedJob'} className="px-3 m-4 border-white rounded uppercase tracking-widest mx-4   transition-all duration-700 hover:bg-white font-semibold text-base hover:text-indigo-600" >Posted Jobs</Link> : null}
                                     </>
                                 }

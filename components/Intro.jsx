@@ -64,13 +64,13 @@ export default function Intro() {
 
       {/* Service Section */}
       <section className="bg-gray-100 py-12">
-        <div className="container mx-auto ">
+        <div className="container mx-auto">
           <h2 className="text-3xl text-center font-bold mb-8">Our Services</h2>
           <div className="flex flex-wrap justify-center">
             <div className="w-full sm:w-1/2 md:w-1/2 lg:w-1/3 xl:w-1/3 p-4">
-              <div className="bg-white p-8 rounded-xl shadow-lg h-full flex flex-col hover:shadow-2xl hover:transform hover:-translate-y-2 hover:scale-105 transition-all">
+              <div className="bg-gray-200 p-8 rounded-xl shadow-lg h-full flex flex-col hover:shadow-2xl hover:transform hover:-translate-y-2 hover:scale-105 transition-all">
                 <div className="flex-shrink-0">
-                  <img className="w-full h-40 object-cover rounded-t-xl" src="/jobsearch.jpg" alt="Service 1" />
+                  <img className="w-full h-40 sm:h-48 md:h-56 lg:h-64 object-cover rounded-t-xl" src="/jobsearch.jpg" alt="Service 1" />
                 </div>
                 <div className="flex-grow p-4">
                   <h3 className="text-xl font-semibold mb-2">Job Search</h3>
@@ -79,13 +79,24 @@ export default function Intro() {
               </div>
             </div>
             <div className="w-full sm:w-1/2 md:w-1/2 lg:w-1/3 xl:w-1/3 p-4">
-              <div className="bg-white p-8 rounded-xl shadow-lg h-full flex flex-col hover:shadow-2xl hover:transform hover:-translate-y-2 hover:scale-105 transition-all">
+              <div className="bg-gray-200 p-8 rounded-xl shadow-lg h-full flex flex-col hover:shadow-2xl hover:transform hover:-translate-y-2 hover:scale-105 transition-all">
                 <div className="flex-shrink-0">
-                  <img className="w-full h-40 object-cover rounded-t-xl" src="/jobpost.jpg" alt="Service 2" />
+                  <img className="w-full h-40 sm:h-48 md:h-56 lg:h-64 object-cover rounded-t-xl" src="/jobpost.jpg" alt="Service 2" />
                 </div>
                 <div className="flex-grow p-4">
                   <h3 className="text-xl font-semibold mb-2">Job Post</h3>
                   <p className="text-gray-600">Are you an employer looking to fill a vacancy? Our job posting service is here to help. With our platform, you can reach a large pool of qualified candidates and attract top talent. Create detailed job listings, set preferences, and receive notifications about potential matches. Post your job today and find the right candidate for your organization's success.</p>
+                </div>
+              </div>
+            </div>
+            <div className="w-full sm:w-1/2 md:w-1/2 lg:w-1/3 xl:w-1/3 p-4">
+              <div className="bg-gray-200 p-8 rounded-xl shadow-lg h-full flex flex-col hover:shadow-2xl hover:transform hover:-translate-y-2 hover:scale-105 transition-all">
+                <div className="flex-shrink-0">
+                  <img className="w-full h-40 sm:h-48 md:h-56 lg:h-64 object-cover rounded-t-xl" src="/apply.jpg" alt="Service 2" />
+                </div>
+                <div className="flex-grow p-4">
+                  <h3 className="text-xl font-semibold mb-2">Job Apply</h3>
+                  <p className="text-gray-600">We offer exceptional services tailored to meet your unique needs and exceed expectations. Our dedicated team is committed to delivering top-notch solutions that drive success and maximize your business potential. With our extensive expertise and client-centered approach, we are confident in our ability to add value and contribute to your organization's growth. Contact us today to explore how our services can benefit your business.</p>
                 </div>
               </div>
             </div>
@@ -94,43 +105,12 @@ export default function Intro() {
       </section>
 
 
-
-
-      {/* About Us Section */}
-      <section className="bg-white py-12">
-        <div className="container mx-auto">
-          <h2 className="text-3xl text-center font-bold mb-8">About Us</h2>
-          <div className="flex flex-wrap justify-center">
-            <div className="w-full sm:w-1/2 lg:w-1/3 p-4">
-              <h3 className="text-lg font-semibold mb-2">Our Mission</h3>
-              <p className="text-gray-600">We aim to connect job seekers with the right employment opportunities and help them build fulfilling careers.</p>
-            </div>
-            <div className="w-full sm:w-1/2 lg:w-1/3 p-4">
-              <h3 className="text-lg font-semibold mb-2">Our Vision</h3>
-              <p className="text-gray-600">To be the leading platform for job search and career development, providing valuable resources and innovative solutions.</p>
-            </div>
-            <div className="w-full sm:w-1/2 lg:w-1/3 p-4">
-              <h3 className="text-lg font-semibold mb-2">Our Values</h3>
-              <ul className="text-gray-600">
-                <li className="mb-1">Integrity</li>
-                <li className="mb-1">Excellence</li>
-                <li className="mb-1">Collaboration</li>
-                <li className="mb-1">Diversity</li>
-                <li>Innovation</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </section>
-
       {/* Footer */}
-      <footer className="bg-indigo-600 text-white py-6">
+      <footer className="bg-indigo-600 text-white py-6 ">
         <div className="container mx-auto text-center">
-          <p>Copyright&copy; 2023 Job Portal. All rights reserved.</p>
+          <p  >Copyright&copy; 2023 Job Portal. All rights reserved.</p>
         </div>
       </footer>
-
-
     </>
   )
 }

@@ -22,7 +22,7 @@ export default function DisplayJobs() {
                     {
                         Array.isArray(JobData) && JobData.length > 0 ? JobData?.map((job) => {
                             return (
-                                <JobsCard job={job} key={job?._id} />
+                              <JobsCard job={job} key={job?._id} />
                             )
                         }) : <p>No jobs found</p>
                     }

@@ -31,7 +31,7 @@ export default function ApplicationsDataTable({ application }) {
         const data = { id, status: "approved" }
         const res = await change_application_status(data);
         if (res.success) {
-            router.push('/components/ApplicationsDataTable')
+            router.push('/frontend/postedJob')
         } else {
             toast.error(res.message)
         }

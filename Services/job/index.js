@@ -70,6 +70,19 @@ export const apply_job = async (formData) => {
     }
 }
 
+export const delete_application = async (id) => {
+    try {
+        const res = await fetch(`${process.env.NEXT_PUBLIC_API_BASE_URL}/api/job/deleteApplication?id=${id}`, {
+            method: 'DELETE',
+            headers : {'Authorization': `Bearer ${Cookies.get('token')}`},
+        });
+        const data = await res.json();
+        return data;
+    } catch (error) {
+        console.log('error in delete application (service) => ', error);
+    }
+}
+
 
 // get my all applied job api
  

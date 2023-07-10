@@ -1,6 +1,6 @@
 import { get_my_posted_job } from '@/Services/job';
 import { setMyJobs } from '@/Utils/JobSlice';
-import JobsCard from '@/components/JobsCard';
+import JobsCard from '@/components/JobPostedCard';
 import NavBar from '@/components/NavBar'
 import Cookies from 'js-cookie';
 import { useRouter } from 'next/router';
