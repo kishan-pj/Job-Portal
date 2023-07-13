@@ -66,6 +66,7 @@ export const update_profile = async (formData) => {
     }
 };
 
+
 export const sendContactForm = async (formData) => {
     try {
       const res = await fetch(`${process.env.NEXT_PUBLIC_API_BASE_URL}/api/auth/contact`, {
