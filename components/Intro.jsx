@@ -104,13 +104,13 @@ export default function Intro() {
         </div>
       </section>
 
-
       {/* Footer */}
-      <footer className="bg-indigo-600 text-white py-6 ">
+      <footer className="bg-indigo-600 text-white py-6">
         <div className="container mx-auto text-center">
-          <p  >Copyright&copy; 2023 Job Portal. All rights reserved.</p>
+          <p style={{ fontSize: '20px' }}>Copyright&copy; 2023 Job Portal. All rights reserved.</p>
         </div>
       </footer>
+
     </>
   )
 }

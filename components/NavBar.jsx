@@ -101,7 +101,7 @@ export default function NavBar() {
                     <Link href={'/frontend/displayJobs'} className="px-3 m-4  border-white rounded uppercase tracking-widest mx-4   transition-all duration-700 hover:bg-white font-semibold text-base hover:text-indigo-600" >View Jobs</Link>
                     {user !== null ? <Link href={'/frontend/postedJob'} className="px-3 m-4 border-white rounded uppercase tracking-widest mx-4   transition-all duration-700 hover:bg-white font-semibold text-base hover:text-indigo-600" >Posted Jobs</Link> : null}
                     {user !== null ? <Link href={'/frontend/dashboard'} className="px-3 m-4  border-white rounded uppercase tracking-widest mx-4   transition-all duration-700 hover:bg-white font-semibold text-base hover:text-indigo-600" >Dashboard</Link> : null}
-                    <Link href={'/frontend/contact'} className="px-3 m-4  border-white rounded uppercase tracking-widest mx-4   transition-all duration-700 hover:bg-white font-semibold text-base hover:text-indigo-600" >Contact</Link>
+                    {/* <Link href={'/frontend/contact'} className="px-3 m-4  border-white rounded uppercase tracking-widest mx-4   transition-all duration-700 hover:bg-white font-semibold text-base hover:text-indigo-600" >Contact</Link> */}
                 </div>
                 <div className='px-2 h-full hidden items-center justify-center lg:flex ' >
                     {
@@ -141,7 +141,7 @@ export default function NavBar() {
                                     </>
                                 }
                                 {user !== null ? <Link href={'/frontend/dashboard'} className="px-3 m-4  border-white rounded uppercase tracking-widest mx-4   transition-all duration-700 hover:bg-white font-semibold text-base hover:text-indigo-600" >Dashboard</Link> : null}
-                                <Link href={'/frontend/contact'} onClick={() => setIsOpen(false)} className="px-3 m-4 border-white rounded uppercase tracking-widest mx-4   transition-all duration-700 hover:bg-white font-semibold text-base hover:text-indigo-600" >Contact</Link>
+                                {/* <Link href={'/frontend/contact'} onClick={() => setIsOpen(false)} className="px-3 m-4 border-white rounded uppercase tracking-widest mx-4   transition-all duration-700 hover:bg-white font-semibold text-base hover:text-indigo-600" >Contact</Link> */}
                             </div>
                             <div className='px-2 h-full  items-center justify-center flex' >
                                 {
